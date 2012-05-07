@@ -1,4 +1,4 @@
-#!/bin/bash -es
+#!/bin/bash
 #
 source ${SOURCE_PATH}monitis_constant.sh || exit 2
 source ${SOURCE_PATH}monitis_util.sh || exit 2

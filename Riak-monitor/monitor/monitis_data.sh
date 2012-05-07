@@ -1,4 +1,4 @@
-#!/bin/bash -es
+#!/bin/bash
 #############################################################################
 #	RIAK MONITOR START SCRIPT                                           #
 #	Author: Arthur Tumanyan <arthurtumanyan@yahoo.com>                  #
