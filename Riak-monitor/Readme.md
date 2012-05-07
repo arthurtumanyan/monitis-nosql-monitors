@@ -8,8 +8,17 @@ Web Site: http://www.netangels.net
 
 OVERVIEW:
 ---------
-These scripts allow a user to easily get some monitoring around their Riak installs using Monitis.
-
+	Riak-monitor is a monitoring tool, specially designed for monitis.com cloud based monitoring platform.
+	It provides wide range of metrics which allows you be informed about your  Riak  cluster/node health, memory usage, etc.
+	The monitor consists of 8 parts:
+		monitor_install.sh - monitor installer
+		monitis-riak-monitor - main monitor script
+		monitis_api.sh - provides API for monitor script
+		monitis_constant.sh - variable declarations & constants
+		monitis_data.sh - provides data fetching from riak (stores data fetching function)
+		monitis_global.sh - Declaration of global variables for Monitis Api
+		monitis_util.sh - Provides utility functions for Monitis Api
+		ticktick.sh - provides JSON functionality
 
 INSTALLATION:
 
@@ -36,7 +45,27 @@ DEPENDENCIES:
 	Bourne Again Shell
 	An installed instance of Riak
 	Curl
-
+METRICS:
+		Description	Param name
+-----------------------------------------------------------------
+	 Virtual Memory Peak 	VmPeak 
+	 Virtual Memory Size 	VmSize
+	 Data	Segment Size 	VmData
+	 File System Swap   	cached_memory
+	 Number of PUTs		node_puts
+	 Vnode index reads	vnode_index_reads
+	 Vnode index writes	vnode_index_writes
+	 Vnode index writes total	vnode_index_writes_total
+	 Vnode index writes postings	vnode_index_writes_postings
+	 Vnode index deletes	vnode_index_deletes
+	 Vnode index deletes postings	vnode_index_deletes_postings
+	 Vnode gets total	vnode_gets_total
+ 	 Vnode puts total	vnode_puts_total
+	 Precommit fail		precommit_fail
+	 PBC connects total 	pbc_connects_total
+	 PBC connects 		pbc_connects
+	 PBCactive		pbc_active
+	
 OTHER:
 
 	Be sure you have right to run monitor_install.sh script
