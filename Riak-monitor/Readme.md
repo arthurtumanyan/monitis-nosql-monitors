@@ -49,25 +49,25 @@ DEPENDENCIES:
 	Curl
 METRICS:
 	
-         Description				Param name
+         Description					Parameter name
 	 ===============================================================================================
-	 Virtual Memory Peak 			VmPeak 
-	 Virtual Memory Size 			VmSize
-	 Data	Segment Size 			VmData
-	 File System Swap   			cached_memory
-	 Number of PUTs				node_puts
-	 Vnode index reads			vnode_index_reads
-	 Vnode index writes			vnode_index_writes
-	 Vnode index writes total		vnode_index_writes_total
-	 Vnode index writes postings		vnode_index_writes_postings
-	 Vnode index deletes			vnode_index_deletes
-	 Vnode index deletes postings		vnode_index_deletes_postings
-	 Vnode gets total			vnode_gets_total
- 	 Vnode puts total			vnode_puts_total
-	 Precommit fail				precommit_fail
-	 PBC connects total 			pbc_connects_total
-	 PBC connects 				pbc_connects
-	 PBCactive				pbc_active
+	 Virtual Memory Peak 				VmPeak 
+	 Virtual Memory Size 				VmSize
+	 Data	Segment Size 				VmData
+	 File System Swap				cached_memory
+	 Number of PUTs					node_puts
+	 Vnode index reads				vnode_index_reads
+	 Vnode index writes				vnode_index_writes
+	 Vnode index writes total			vnode_index_writes_total
+	 Vnode index writes postings			vnode_index_writes_postings
+	 Vnode index deletes				vnode_index_deletes
+	 Vnode index deletes postings			vnode_index_deletes_postings
+	 Vnode gets total				vnode_gets_total
+ 	 Vnode puts total				vnode_puts_total
+	 Precommit fail					precommit_fail
+	 PBC connects total 				pbc_connects_total
+	 PBC connects 					pbc_connects
+	 PBCactive					pbc_active
 	
 OTHER:
 
