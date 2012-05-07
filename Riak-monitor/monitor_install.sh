@@ -92,6 +92,21 @@ ABSOLUTE_PATH="$1/$RIAK_HOME"
 	
 }
 #
+echo -n "Enter the installation absolute path or Return for default value:"
+read user_path
+
+if [[ "x$user_path" == "x" ]];then
+        echo "Default path is: $DIR"
+else
+        if [[ ! -d $user_path ]];then
+                echo "No such directory...exiting "
+                echo
+		exit 1
+	else
+		DIR=$user_path
+        fi
+fi
+
 #
 if [[ "$1" == "destroy" ]];then
 	if [[ -d $DIR ]];then
