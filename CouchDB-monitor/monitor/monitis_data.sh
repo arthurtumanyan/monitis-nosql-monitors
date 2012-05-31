@@ -1,3 +1,14 @@
+#!/bin/bash
+#############################################################################
+#       COUCH MONITOR START SCRIPT                                          #
+#       Author: Arthur Tumanyan <arthurtumanyan@yahoo.com>                  #
+#       Company: Netangels <http://www.netangels.net>                       #
+#############################################################################
+#
+#set -x
+# sources included
+SOURCE_PATH=
+source ${SOURCE_PATH}monitis_constant.sh || exit 2
 #
 function get_data()
 {
@@ -36,7 +47,7 @@ do
         if [[ -z $val ]];then
                 val=0
         fi
-        desc=$(cat $TMP_COUCH|$JSAWK "return this.couchdb[\"$ITER\"].description"|tr ' ' '+'|tr 'number' 'Number'|tr 'length' 'Length')
+        desc=$(cat $TMP_COUCH|$JSAWK "return this.couchdb[\"$ITER\"].description"|sed "s/number of//g" |sed "s/length of//g" | tr [:space:] '+')
         postdata=$postdata"$ITER:$val;"
         result=$result"$ITER:$desc:$UOM:2;";
 
@@ -49,11 +60,12 @@ do
         if [[ -z $val ]];then
                 val=0
         fi
-        desc=$(cat $TMP_COUCH|$JSAWK "return this.httpd[\"$ITER\"].description"|tr ' ' '+'|tr 'number' 'Number'|tr 'length' 'Length')
+        desc=$(cat $TMP_COUCH|$JSAWK "return this.httpd[\"$ITER\"].description"|sed "s/number of//g" |sed "s/length of//g" | tr [:space:] '+')
         postdata=$postdata"$ITER:$val;"
         result=$result"$ITER:$desc:$UOM:2;";
 done
 #
+additionalPData="[{"
 #httpd_request_methods
 for ITER in "DELETE" "HEAD" "POST" "PUT" "MOVE" "GET" "COPY"
 do
@@ -61,9 +73,9 @@ do
         if [[ -z $val ]];then
                 val=0
         fi
-        desc=$(cat $TMP_COUCH|$JSAWK "return this.httpd_request_methods[\"$ITER\"].description"|tr ' ' '+'|tr 'number' 'Number'|tr 'length' 'Length')
-        postdata=$postdata"$ITER:$val;"
-        result=$result"$ITER:$desc:$UOM:2;";
+ desc=$(cat $TMP_COUCH|$JSAWK "return this.httpd_request_methods[\"$ITER\"].description"|sed "s/number of//g" |sed "s/length of//g"|sed "s/HTTP//g"|sed "s/requests//g"|tr [:space:] '+')
+        additionalPData=$additionalPData\"$ITER\":$val\,;
+        additionalResult=$additionalResult$ITER:$desc:$UOM:2:$UOM\;;
 done
 #
 #httpd_status_codes
@@ -73,12 +85,16 @@ do
         if [[ -z $val ]];then
                 val=0
         fi
-        desc=$(cat $TMP_COUCH|$JSAWK "return this.httpd_status_codes[\"$ITER\"].description"|tr ' ' '+'|tr 'number' 'Number'|tr 'length' 'Length')
-        postdata=$postdata"$ITER:$val;"
-        result=$result"$ITER:$desc:$UOM:2;";
+        desc=$(cat $TMP_COUCH|$JSAWK "return this.httpd_status_codes[\"$ITER\"].description"|sed "s/number of//g" |sed "s/length of//g"|sed "s/HTTP//g"|sed "s/responses//g" | tr [:space:] '+')
+        additionalPData=$additionalPData\"$ITER\":$val\,;
+        additionalResult=$additionalResult$ITER:$desc:$UOM:2:$UOM\;;
 done
+additionalPData=$additionalPData"}]";
 #
+echo
+echo
 #end of get_data
-test -f $TMP_COUCH && rm $TMP_COUCH > /dev/null
+#test -f $TMP_COUCH && rm $TMP_COUCH > /dev/null
 #
 }
+#
