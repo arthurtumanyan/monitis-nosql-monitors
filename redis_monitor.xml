@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<config>
+	<apicredentials apikey="%API_KEY%" secretkey="%SECRET_KEY%"/>
+	<agent name="redis monitor" interval="60">
+		
+		<monitor name="Redis metrics">
+			<exectemplate>/usr/bin/redis-cli info|awk -F ':' '{print $2}'</exectemplate>
+			
+			<metric name="UptimeSeconds">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>7</line>
+			</metric>
+			
+			<metric name="UptimeDays">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>8</line>
+			</metric>
+			
+			<metric name="UsedCPUSys">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>10</line>
+			</metric>
+
+			<metric name="UsedCPUUser">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>11</line>
+			</metric>
+
+			<metric name="UsedCpuSysChildrens">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>12</line>
+			</metric>
+
+			<metric name="UsedCpuUserChildrens">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>13</line>
+			</metric>
+
+			<metric name="ConnectedClients">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>14</line>
+			</metric>
+
+			<metric name="ConnectedSlaves">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>15</line>
+			</metric>
+
+			<metric name="ClientLongestOutputList">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>16</line>	
+			</metric>
+
+			<metric name="ClientBiggestInputBuf">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>17</line>
+			</metric>
+
+			<metric name="BlockedClients">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>18</line>
+			</metric>
+
+			<metric name="UsedMemory">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>19</line>
+			</metric>
+
+			<metric name="UsedMemoryHuman">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>20</line>
+			</metric>
+
+			<metric name="UsedMemoryRss">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>21</line>
+			</metric>
+			<metric name="MemFragmentationRatio">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>22</line>
+			</metric>
+			<metric name="ChangesSinceLastSave">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>26</line>
+			</metric>
+			<metric name="BgsaveInProgress">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>27</line>
+			</metric>
+			<metric name="LastSaveTime">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>28</line>
+			</metric>
+			<metric name="BgrewriteaofInProgress">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>29</line>
+			</metric>
+			<metric name="TotalConnectionsReceived">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>30</line>
+			</metric>
+			<metric name="TotalCommandsProcessed">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>31</line>
+			</metric>
+			<metric name="ExpiredKeys">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>32</line>
+			</metric>
+			<metric name="EvictedKeys">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>33</line>
+			</metric>
+			<metric name="KeyspaceHits">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>34</line>
+			</metric>
+			<metric name="KeyspaceMisses">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>35</line>
+			</metric>
+			<metric name="HashMaxZipmapEntries">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>36</line>
+			</metric>
+			<metric name="HashMaxZipmapValue">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>37</line>
+			</metric>
+			<metric name="PubsubChannels">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>38</line>
+			</metric>
+			<metric name="PubsubPatterns">
+				<type>integer</type>
+				<uom>NA</uom>
+				<line>39</line>
+			</metric>
+						
+		</monitor>
+	</agent>
+</config>
