@@ -12,11 +12,12 @@ __Run__
 
       Type monitis-m3 /path/to/mongodb_monitor.xml<Return> in the command line.
 
-   Important notice: After each run monitis-m3 tries to register the given monitor, so if you run monitis-m3 with '--once' key, be sure you've removed 
+   *Important notice:* After each run monitis-m3 tries to register the given monitor, so if you run monitis-m3 with '--once' key, be sure you've removed 
    monitor from Monitis.com dashboard before the next run.
    Otherwise ,you will get an error such 'Monitor with that name already exists'!
 
 __Metrics__
+
       inserts      - number of inserts per second
       query        - number of queries per second
       update       - number of updates per second
