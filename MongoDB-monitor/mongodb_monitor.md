@@ -1,12 +1,12 @@
 __Introduction__
 
-      mongodb_monitor.xml is a template for Monitis Monitor Manager. 
-      It allows to you get statistic data from MongoDB
+ mongodb_monitor.xml is a template for Monitis Monitor Manager. 
+ It allows to you get statistic data from MongoDB
       
-      Install/configure
-      Install M3 according it's installation rules
-      Be sure you have mongostat installed (this tool is coming with MongoDB installation package).
-      Try which mongostat to check existence of mongostat
+Install/configure
+Install M3 according it's installation rules
+Be sure you have mongostat installed (this tool is coming with MongoDB installation package).
+Try which mongostat to check existence of mongostat
 
 __Run__
 
