@@ -5,7 +5,7 @@ __Introduction__
       
 __Install/configure__
 
- Install M3 according it's installation rules
+ Install M3 according it's installation rules.
  Be sure you have mongostat installed (this tool is coming with MongoDB installation package).
  Try *'which mongostat'* to check existence of *mongostat*
 
