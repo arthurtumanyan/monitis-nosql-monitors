@@ -1,0 +1,10 @@
+client_http.kbytes_in 
+client_http.kbytes_out = 28
+server.all.kbytes_in = 0
+server.all.kbytes_out = 0
+client_http.errors = 0
+aborted_requests = 0
+server.http.requests = 0
+client_http.requests = 17
+page_faults = 0
+server.other.errors = 0
